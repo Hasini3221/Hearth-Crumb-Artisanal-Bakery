@@ -19,6 +19,8 @@ interface BakeryContextType {
   setIsReviewModalOpen: (open: boolean) => void;
   reviewTargetItem: MenuItem | null;
   setReviewTargetItem: (item: MenuItem | null) => void;
+  isChatOpen: boolean;
+  setIsChatOpen: (open: boolean) => void;
   
   // Cart Actions
   addToCart: (item: MenuItem, qty?: number) => { success: boolean; message?: string };
@@ -122,6 +124,7 @@ export const BakeryProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [selectedProduct, setSelectedProduct] = useState<MenuItem | null>(null);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState<boolean>(false);
   const [reviewTargetItem, setReviewTargetItem] = useState<MenuItem | null>(null);
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
 
   // Sync to localStorage
   useEffect(() => {
@@ -464,6 +467,8 @@ export const BakeryProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         setIsReviewModalOpen,
         reviewTargetItem,
         setReviewTargetItem,
+        isChatOpen,
+        setIsChatOpen,
         addToCart,
         removeFromCart,
         updateCartQuantity,

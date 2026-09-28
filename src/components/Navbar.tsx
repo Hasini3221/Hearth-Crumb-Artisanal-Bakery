@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingBag, ChefHat, Search, Sparkles } from 'lucide-react';
+import { ShoppingBag, ChefHat, Search, Sparkles, Bot } from 'lucide-react';
 import { useBakery } from '../context/BakeryContext';
 
 export const Navbar: React.FC = () => {
@@ -8,6 +8,7 @@ export const Navbar: React.FC = () => {
     setActiveTab, 
     cartTotalCount, 
     setIsCartOpen,
+    setIsChatOpen,
     orders
   } = useBakery();
 
@@ -80,7 +81,17 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Zone 3: 1-2 primary actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Chatbot toggle */}
+          <button
+            onClick={() => setIsChatOpen(true)}
+            className="px-3 py-2 text-xs font-medium rounded-lg border border-amber-200/80 bg-amber-50/70 hover:bg-amber-100 text-amber-950 transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
+            title="Chat with Hearth & Crumb AI Assistant"
+          >
+            <Bot className="w-3.5 h-3.5 text-amber-800" />
+            <span className="hidden sm:inline">Ask AI</span>
+          </button>
+
           {/* Admin toggle */}
           <button
             onClick={() => setActiveTab(activeTab === 'admin' ? 'store' : 'admin')}

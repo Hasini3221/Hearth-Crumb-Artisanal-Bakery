@@ -16,6 +16,7 @@ import { WriteReviewModal } from './components/WriteReviewModal';
 import { OrderTrackingView } from './components/OrderTrackingView';
 import { AdminDashboard } from './components/AdminDashboard';
 import { Footer } from './components/Footer';
+import { BakeryChatbot } from './components/BakeryChatbot';
 
 const BakeryAppContent: React.FC = () => {
   const { activeTab } = useBakery();
@@ -48,6 +49,9 @@ const BakeryAppContent: React.FC = () => {
       <ProductDetailModal />
       <CartCheckoutDrawer />
       <WriteReviewModal />
+      
+      {/* n8n Bakery AI Chatbot */}
+      <BakeryChatbot />
     </div>
   );
 };
